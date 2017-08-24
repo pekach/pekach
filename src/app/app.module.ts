@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -29,8 +29,8 @@ import { StreamsModule } from './streams/streams.module';
     AngularFireModule.initializeApp(environment.database),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    ErrorsModule,
-    StreamsModule
+    StreamsModule,
+    ErrorsModule
   ],
   bootstrap: [AppComponent],
 })
