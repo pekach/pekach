@@ -1,5 +1,33 @@
-<router-outlet></router-outlet>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a routerLink="/" class="navbar-brand">Пека.ch</a>
+    </div>
 
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a routerLink="/streams">Streams</a>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a routerLink="/">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top: 80px;">
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+<!--
 <div *ngIf="user | async as user; else loading;">
   <div>{{ user | json }}</div>
 </div>
@@ -7,3 +35,4 @@
 <ng-template #loading>Loading...</ng-template>
 
 <button (click)="login()">Auth</button>
+-->

@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'ch-notfound',
+  selector: 'ch-stream-preview',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './not-found.component.html'
+  templateUrl: './stream-preview.component.html'
 })
-export class NotFoundComponent {}
+export class StreamPreviewComponent {}
