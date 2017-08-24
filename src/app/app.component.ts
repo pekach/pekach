@@ -8,15 +8,13 @@ import { AngularFireAuth } from 'angularfire2/auth';
 @Component({
   selector: 'ch-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['../less/bootstrapper.css']
 })
 export class AppComponent {
   user: Observable<firebase.User>;
-  items: FirebaseListObservable<any[]>;
 
   constructor(protected afAuth: AngularFireAuth, protected db: AngularFireDatabase) {
     this.user = afAuth.authState;
-    this.items = db.list('items');
   }
 
   login() {

@@ -1,3 +1,5 @@
+<router-outlet></router-outlet>
+
 <div *ngIf="user | async as user; else loading;">
   <div>{{ user | json }}</div>
 </div>

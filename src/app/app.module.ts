@@ -12,7 +12,10 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { reducers } from './store';
 import { routes } from './app.routes';
 import { environment } from '../environments/environment';
-import { AppComponent } from './components/app.component';
+import { AppComponent } from './app.component';
+
+import { ErrorsModule } from './errors/errors.module';
+import { StreamsModule } from './streams/streams.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +29,9 @@ import { AppComponent } from './components/app.component';
     AngularFireModule.initializeApp(environment.database),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    ErrorsModule,
+    StreamsModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
