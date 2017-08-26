@@ -1,14 +1,14 @@
 import * as fromStreams from './stream/stream.reducer';
-import { combineReducers } from '@ngrx/store';
+import { ActionReducer, ActionReducerMap, combineReducers } from '@ngrx/store';
+
+export { StoreModule } from './store.module';
 
 export interface State {
   streams: fromStreams.State;
 }
 
-export function reducers(state: any, action: any) {
-  const reducers = {
-    streams: fromStreams.reducer
-  };
+export const reducers: ActionReducerMap<State> = {
+  streams: fromStreams.reducer
+};
 
-  return combineReducers(reducers);
-}
+export const getStream = (state: State) => state.streams;

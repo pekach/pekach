@@ -31,6 +31,10 @@ export class AppComponent implements OnInit {
     private titleService: Title
   ) {
     this.user = afAuth.authState;
+
+    let values = this.db.list('streams');
+
+    (window as any).vls = this.db.list('streams');
   }
 
 /*

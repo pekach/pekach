@@ -1,8 +1,10 @@
+import { Stream } from '../../shared/models/stream.model';
 import * as StreamActions from './stream.actions';
+
 
 export interface State {
   loading: boolean;
-  streams: Array<any>;
+  streams: Array<Stream>;
 }
 
 const initialState: State = {
@@ -18,6 +20,16 @@ export function reducer(state: State = initialState, action: StreamActions.Actio
         loading: true
       };
     }
+
+    case StreamActions.FETCH_STREAMS_SUCCESS: {
+      const newState: State = {
+        streams: action.payload,
+        loading: false
+      };
+
+      return newState;
+    }
+
     default: {
       return state;
     }

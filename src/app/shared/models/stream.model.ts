@@ -5,5 +5,5 @@ export interface Stream {
   category: string;
   thumbnail: string;
   startedAt: number;
-  players: Array<any>;
+  players: Array<Provider>;
 }
