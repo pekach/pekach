@@ -1,6 +1,7 @@
 import { Stream } from '../../shared/models/stream.model';
-import * as StreamActions from './stream.actions';
+import { ActionTypes } from './action.types';
 
+import * as StreamsActions from './streams.actions';
 
 export interface State {
   loading: boolean;
@@ -12,16 +13,16 @@ const initialState: State = {
   streams: []
 };
 
-export function reducer(state: State = initialState, action: StreamActions.Actions) {
+export function reducer(state: State = initialState, action: StreamsActions.Actions) {
   switch (action.type) {
-    case StreamActions.ADD_STREAM: {
+    case ActionTypes.ADD_STREAM: {
       return {
         ...state,
         loading: true
       };
     }
 
-    case StreamActions.FETCH_STREAMS_SUCCESS: {
+    case ActionTypes.FETCH_STREAMS_SUCCESS: {
       const newState: State = {
         streams: action.payload,
         loading: false
@@ -36,3 +37,4 @@ export function reducer(state: State = initialState, action: StreamActions.Actio
   }
 }
 
+export const getStream = (state: State) => state.streams;

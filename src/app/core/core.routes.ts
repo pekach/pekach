@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from './errors';
 
 export const routes: Array<Route> = [
   {

@@ -9,24 +9,25 @@ import { Observable } from 'rxjs/Observable';
 import { empty } from 'rxjs/observable/empty';
 import { of } from 'rxjs/observable/of';
 
-import * as StreamActions from './stream.actions';
+import { ActionTypes } from './action.types';
+import * as StreamsActions from './streams.actions';
 
-import { StreamService } from '../../shared/services/stream.service';
+import { StreamService } from '../../shared';
 
 @Injectable()
 export class StreamEffects {
   @Effect()
   addStream$: Observable<Action> = this.actions$
-    .ofType(StreamActions.ADD_STREAM)
-    .map((action: StreamActions.AddStreamAction) => action.payload)
+    .ofType(ActionTypes.ADD_STREAM)
+    .map((action: StreamsActions.AddStreamAction) => action.payload)
     .switchMap(message => empty());
 
   @Effect()
   getStreams$: Observable<Action> = this.actions$
-    .ofType(StreamActions.FETCH_STREAMS)
+    .ofType(ActionTypes.FETCH_STREAMS)
     .switchMap(() => this.streamService.getStreams())
-    .map((results) => new StreamActions.FetchStreamsSuccessAction(results))
-    .catch(() => of(new StreamActions.FetchStreamsFailureAction([])));
+    .map((results) => new StreamsActions.FetchStreamsSuccessAction(results))
+    .catch(() => of(new StreamsActions.FetchStreamsFailureAction([])));
 
   constructor(
     protected actions$: Actions,

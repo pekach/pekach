@@ -1,10 +1,18 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Type } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
-import { AuthenticationGuard } from './guards/authentication.guard';
+import { NotFoundComponent } from './errors';
+import { RootComponent } from './root';
+import { AuthenticationGuard } from './guards';
+import { routes } from './core.routes';
 
 @NgModule({
-  providers: [
-    AuthenticationGuard
+  imports: [RouterModule.forRoot(routes)],
+  declarations: [
+    RootComponent,
+    NotFoundComponent
   ]
 })
-export class PekachCoreModule {}
+export class CoreModule {
+  static bootstrap: Array<Type<any> | any[]> = [RootComponent];
+}
