@@ -12,7 +12,7 @@ import { of } from 'rxjs/observable/of';
 import { ActionTypes } from './action.types';
 import * as StreamsActions from './streams.actions';
 
-import { StreamService } from '../../shared';
+import { StreamService } from 'app/shared';
 
 @Injectable()
 export class StreamEffects {

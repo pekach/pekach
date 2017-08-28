@@ -6,13 +6,12 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { environment } from 'environments/environment';
 
-import { environment } from '../environments/environment';
-
-import { CoreModule } from './core';
-import { StreamsModule } from './streams';
-import { SharedModule } from './shared';
-import { StatesModule } from './states';
+import { CoreModule } from 'app/core';
+import { StreamsModule } from 'app/streams';
+import { SharedModule } from 'app/shared';
+import { StatesModule } from 'app/states';
 
 @NgModule({
   imports: [

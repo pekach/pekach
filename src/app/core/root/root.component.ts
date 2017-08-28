@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   selector: 'ch-root',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './root.component.html',
-  styleUrls: ['../../../less/bootstrapper.less']
+  styleUrls: ['less/bootstrapper.less']
 })
 export class RootComponent implements OnInit {
   // user: Observable<firebase.User>;

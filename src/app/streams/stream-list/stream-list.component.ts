@@ -2,7 +2,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import { States, Actions } from '../../states';
+import { States, Actions } from 'app/states';
+import { Stream } from 'app/shared';
 
 @Component({
   selector: 'ch-stream-list',
@@ -10,7 +11,7 @@ import { States, Actions } from '../../states';
   templateUrl: './stream-list.component.html'
 })
 export class StreamListComponent {
-  streams$: Observable<any>;
+  streams$: Observable<Array<Stream>>;
 
   constructor(private store: Store<States>) {
     this.streams$ = this.store
