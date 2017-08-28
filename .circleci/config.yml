@@ -9,7 +9,17 @@ jobs:
   build:
     docker:
       - image: pekach/ts-devtools-base
+        environment:
+          BOT_NAME: adolf-ra
+          BOT_EMAIL: bot@pekach.zendesk.com
     steps:
       - checkout
-      - run: bash ./.circleci/build
-      - run: bash ./.circleci/test
+      - run: ./.circleci/build
+      - run: ./.circleci/test
+      - run: ./.circleci/deploy
+      - run: git config --global user.name "${BOT_NAME}"
+      - run: git config --global user.email "${BOT_EMAIL}"
+      - run: git config --global push.default simple
+      - deploy:
+        name: Deploy to gh-pages
+        command: ./.circleci/deploy

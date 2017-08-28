@@ -1,0 +1,53 @@
+#!/bin/bash
+
+upstream_url=https://github.com/pekach/pekach.github.io.git
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "${DIR}/shared"
+
+if [ -z "$(ls -A ./dist)" ]; then
+   echo "./dist is empty"
+   exit 2
+fi
+
+echo_headline "Cloning repository"
+git clone $upstream_url /tmp/upstream
+if [ $? -ne 0 ]; then
+	echo "Failed to clone \"${upstream_url}\""
+        exit 2
+fi
+echo "Done."
+
+mv -rf ./dist/* /tmp/upstream/
+
+cd /tmp/upstream/
+
+echo_headline "Commiting"
+hub add --all
+hub commit -m "Site update:$(date -u)"
+if [ $? -ne 0 ]; then
+	echo "Commit failed"
+        exit 2
+fi
+hub fork
+if [ $? -ne 0 ]; then
+	echo "Local fork failed"
+        exit 2
+fi
+echo "Done."
+
+echo_headline "Pushing to \"${BOT_NAME}\" fork"
+git remote set-url "${BOT_NAME}" \
+                   "git@github.com:${BOT_NAME}/pekach.github.io.git"
+hub push -f "${BOT_NAME}" master
+if [ $? -ne 0 ]; then
+	echo "Pushing to \"${BOT_NAME}\" fork failed"
+        exit 2
+fi
+echo "Done."
+
+echo_headline "OPENING PR TO \"${upstream_url}\""
+echo "Site update(auto)" > msg
+echo "Повежливее плизки )))" >> msg
+hub pull-request -F msg
+echo "Deply succseeded."
