@@ -22,4 +22,7 @@ jobs:
           command: ./.circleci/test
       - deploy:
           name: Deploy to gh-pages
-          command: ./.circleci/deploy
+          command: |
+            if [ -z "${CIRCLE_PR_NUMBER}" ]; then
+              ./.circleci/deploy
+            fi
