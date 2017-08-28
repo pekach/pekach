@@ -28,7 +28,7 @@ if [ $? -ne 0 ]; then
 fi
 echo "Done."
 
-mv -rf ./dist/* /tmp/upstream/
+mv -f ./dist/* /tmp/upstream/
 
 cd /tmp/upstream/
 
