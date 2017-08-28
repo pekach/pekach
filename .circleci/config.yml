@@ -14,8 +14,12 @@ jobs:
           TARGET_BRANCH: master
     steps:
       - checkout
-      - run: ./.circleci/build
-      - run: ./.circleci/test
+      - run:
+          name: Build
+          command: ./.circleci/build
+      - run:
+          name: Test
+          command: ./.circleci/test
       - deploy:
           name: Deploy to gh-pages
           command: ./.circleci/deploy
