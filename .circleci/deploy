@@ -1,6 +1,7 @@
 #!/bin/bash
 
-upstream_url=https://github.com/pekach/pekach.github.io.git
+target_url="https://github.com/pekach/pekach.github.io.git"
+target_branch="master"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "${DIR}/shared"
@@ -10,10 +11,19 @@ if [ -z "$(ls -A ./dist)" ]; then
    exit 2
 fi
 
+echo "Bot name is \"${BOT_NAME}\""
+echo "Bot email is \"${BOT_EMAIL}\""
+echo "target repo url is \"${target_url}\""
+echo "target repo branch is \"${target_branch}\""
+
+git config --global user.name "${BOT_NAME}"
+git config --global user.email "${BOT_EMAIL}"
+git config --global push.default simple
+
 echo_headline "Cloning repository"
-git clone $upstream_url /tmp/upstream
+git clone $target_url /tmp/upstream
 if [ $? -ne 0 ]; then
-	echo "Failed to clone \"${upstream_url}\""
+	echo "Failed to clone \"${target_url}\""
         exit 2
 fi
 echo "Done."
@@ -39,14 +49,14 @@ echo "Done."
 echo_headline "Pushing to \"${BOT_NAME}\" fork"
 git remote set-url "${BOT_NAME}" \
                    "git@github.com:${BOT_NAME}/pekach.github.io.git"
-hub push -f "${BOT_NAME}" master
+hub push -f "${BOT_NAME}" target_branch
 if [ $? -ne 0 ]; then
 	echo "Pushing to \"${BOT_NAME}\" fork failed"
         exit 2
 fi
 echo "Done."
 
-echo_headline "OPENING PR TO \"${upstream_url}\""
+echo_headline "OPENING PR TO \"${target_url}\""
 echo "Site update(auto)" > msg
 echo "Повежливее плизки )))" >> msg
 hub pull-request -F msg
