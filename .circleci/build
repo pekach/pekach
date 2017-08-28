@@ -8,6 +8,7 @@ echo_headline () {
 }
 
 echo_headline "Installing dependencies"
+npm set progress=false
 npm install --silent
 if [ $? -ne 0 ]; then
 	echo "Dependency installation failed"
