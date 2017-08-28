@@ -15,7 +15,7 @@ fi
 echo "Done."
 
 echo_headline "Testing project"
-ng test --single-run
+ng test --single-run --no-progress
 if [ $? -ne 0 ]; then
 	echo "Project tests failed"
         exit 2
