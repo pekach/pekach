@@ -15,6 +15,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install dependencies
+          command: ./.circleci/install-deps
+      - run:
           name: Build
           command: ./.circleci/build
       - run:
