@@ -1,11 +1,7 @@
 #!/bin/bash
 
-echo_headline () {
-    printf '=%.0s' {1..70}
-    printf "\n$1\n"
-    printf '=%.0s' {1..70}
-    echo
-}
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "${DIR}/shared"
 
 echo_headline "Installing dependencies"
 npm install --no-progress

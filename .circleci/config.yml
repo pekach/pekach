@@ -12,3 +12,4 @@ jobs:
     steps:
       - checkout
       - run: bash ./.circleci/build
+      - run: bash ./.circleci/test
