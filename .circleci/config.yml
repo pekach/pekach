@@ -16,7 +16,6 @@ jobs:
       - checkout
       - run: ./.circleci/build
       - run: ./.circleci/test
-      - run: ./.circleci/deploy
       - deploy:
           name: Deploy to gh-pages
           command: ./.circleci/deploy
