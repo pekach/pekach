@@ -1,0 +1,25 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "${DIR}/shared"
+
+echo_headline "Starting xvbf"
+Xvfb $DISPLAY -screen 0 800x600x24&
+echo "sleeping 3 sec"
+sleep 3
+xhost +
+if [ $? -ne 0 ]; then
+	echo "Something worng with xvbf or xhost"
+        exit 2
+fi
+echo "Done."
+
+echo_headline "Testing project"
+ng test --single-run
+if [ $? -ne 0 ]; then
+	echo "Project tests failed"
+        exit 2
+fi
+echo "Done."
+
+echo "Tests succseeded."

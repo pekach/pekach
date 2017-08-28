@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo_headline () {
+    printf '=%.0s' {1..100}
+    printf "\n$1\n"
+    printf '=%.0s' {1..100}
+    echo
+}
