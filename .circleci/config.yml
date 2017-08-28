@@ -1,0 +1,14 @@
+---
+# Circle CI YAML file
+version: 2.0
+general:
+  branches:
+    ignore:
+      - gh-pages
+jobs:
+  build:
+    docker:
+      - image: pekach/ts-devtools-base
+    steps:
+      - checkout
+      - run: bash ./.circleci/build

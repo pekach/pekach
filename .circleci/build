@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo_headline () {
+    printf '=%.0s' {1..70}
+    printf "\n$1\n"
+    printf '=%.0s' {1..70}
+    echo
+}
+
+echo_headline "Installing dependencies"
+npm install
+if [ $? -ne 0 ]; then
+	echo "Dependency installation failed"
+        exit 2
+fi
+echo "Done."
+
+echo_headline "Installing dependencies"
+ng build
+if [ $? -ne 0 ]; then
+	echo "Project build failed"
+        exit 2
+fi
+echo "Done."
+
+
+echo "Build succseeded."
