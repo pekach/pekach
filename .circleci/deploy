@@ -1,8 +1,5 @@
 #!/bin/bash
 
-target_url="https://github.com/pekach/pekach.github.io.git"
-target_branch="master"
-
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "${DIR}/shared"
 
@@ -11,19 +8,23 @@ if [ -z "$(ls -A ./dist)" ]; then
    exit 2
 fi
 
+target_URL="https://github.com/pekach/${TARGET_REPO_NAME}.git"
+
 echo "Bot name is \"${BOT_NAME}\""
 echo "Bot email is \"${BOT_EMAIL}\""
-echo "target repo url is \"${target_url}\""
-echo "target repo branch is \"${target_branch}\""
+echo "target repo url is \"${target_URL}\""
+echo "target repo branch is \"${TARGET_BRANCH}\""
 
 git config --global user.name "${BOT_NAME}"
 git config --global user.email "${BOT_EMAIL}"
 git config --global push.default simple
+git config --global hub.protocol https
+export GITHUB_TOKEN=$BOT_TK
 
 echo_headline "Cloning repository"
-git clone $target_url /tmp/upstream
+git clone $target_URL /tmp/upstream
 if [ $? -ne 0 ]; then
-	echo "Failed to clone \"${target_url}\""
+	echo "Failed to clone \"${target_URL}\""
         exit 2
 fi
 echo "Done."
@@ -45,6 +46,8 @@ if [ $? -ne 0 ]; then
 	echo "Commit failed"
         exit 2
 fi
+echo "Done."
+echo_headline "Creating local fork"
 hub fork
 if [ $? -ne 0 ]; then
 	echo "Local fork failed"
@@ -53,16 +56,17 @@ fi
 echo "Done."
 
 echo_headline "Pushing to \"${BOT_NAME}\" fork"
-git remote set-url "${BOT_NAME}" \
-                   "git@github.com:${BOT_NAME}/pekach.github.io.git"
-hub push -f "${BOT_NAME}" target_branch
+fork_URL="https://${BOT_NAME}:${BOT_TK}@github.com/"
+fork_URL+="${BOT_NAME}/${TARGET_REPO_NAME}.git"
+git remote set-url "${BOT_NAME}" "${fork_URL}"
+hub push -f "${BOT_NAME}" TARGET_BRANCH
 if [ $? -ne 0 ]; then
 	echo "Pushing to \"${BOT_NAME}\" fork failed"
         exit 2
 fi
 echo "Done."
 
-echo_headline "OPENING PR TO \"${target_url}\""
+echo_headline "OPENING PR TO \"${target_URL}\""
 echo "Site update(auto)" > msg
 echo "Повежливее плизки )))" >> msg
 hub pull-request -F msg

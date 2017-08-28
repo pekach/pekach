@@ -10,8 +10,8 @@ jobs:
     docker:
       - image: pekach/ts-devtools-base
         environment:
-          BOT_NAME: adolf-ra
-          BOT_EMAIL: bot@pekach.zendesk.com
+          TARGET_REPO_NAME: pekach.github.io
+          TARGET_BRANCH: master
     steps:
       - checkout
       - run: ./.circleci/build
