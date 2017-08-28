@@ -72,3 +72,5 @@ echo "Site update(auto)" > msg
 echo "Повежливее плизки )))" >> msg
 hub pull-request -F msg
 echo "Deply succseeded."
+
+exit 0
