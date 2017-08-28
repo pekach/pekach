@@ -59,14 +59,15 @@ echo_headline "Pushing to \"${BOT_NAME}\" fork"
 fork_URL="https://${BOT_NAME}:${BOT_TK}@github.com/"
 fork_URL+="${BOT_NAME}/${TARGET_REPO_NAME}.git"
 git remote set-url "${BOT_NAME}" "${fork_URL}"
-hub push -f "${BOT_NAME}" TARGET_BRANCH
+                                             #To prevent token leak"
+hub push -f "${BOT_NAME}" "${TARGET_BRANCH}" > /dev/null 2>&1 
 if [ $? -ne 0 ]; then
 	echo "Pushing to \"${BOT_NAME}\" fork failed"
         exit 2
 fi
 echo "Done."
 
-echo_headline "OPENING PR TO \"${target_URL}\""
+echo_headline "Opening PR to \"${target_URL}\""
 echo "Site update(auto)" > msg
 echo "Повежливее плизки )))" >> msg
 hub pull-request -F msg
