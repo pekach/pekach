@@ -71,6 +71,6 @@ echo_headline "Opening PR to \"${target_URL}\""
 echo "Site update(auto)" > msg
 echo "Повежливее плизки )))" >> msg
 hub pull-request -F msg
-echo "Deply succseeded."
+echo "Deploy succseeded."
 
 exit 0
