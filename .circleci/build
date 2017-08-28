@@ -1,27 +1,22 @@
 #!/bin/bash
 
-echo_headline () {
-    printf '=%.0s' {1..70}
-    printf "\n$1\n"
-    printf '=%.0s' {1..70}
-    echo
-}
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "${DIR}/shared"
 
 echo_headline "Installing dependencies"
-npm install
+npm install --no-progress
 if [ $? -ne 0 ]; then
 	echo "Dependency installation failed"
         exit 2
 fi
 echo "Done."
 
-echo_headline "Installing dependencies"
-ng build
+echo_headline "Build project"
+ng build --prod --no-progress
 if [ $? -ne 0 ]; then
 	echo "Project build failed"
         exit 2
 fi
 echo "Done."
-
 
 echo "Build succseeded."

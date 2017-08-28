@@ -1,0 +1,76 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "${DIR}/shared"
+
+if [ -z "$(ls -A ./dist)" ]; then
+   echo "./dist is empty"
+   exit 2
+fi
+
+target_URL="https://github.com/pekach/${TARGET_REPO_NAME}.git"
+
+echo "Bot name is \"${BOT_NAME}\""
+echo "Bot email is \"${BOT_EMAIL}\""
+echo "target repo url is \"${target_URL}\""
+echo "target repo branch is \"${TARGET_BRANCH}\""
+
+git config --global user.name "${BOT_NAME}"
+git config --global user.email "${BOT_EMAIL}"
+git config --global push.default simple
+git config --global hub.protocol https
+export GITHUB_TOKEN=$BOT_TK
+
+echo_headline "Cloning repository"
+git clone $target_URL /tmp/upstream
+if [ $? -ne 0 ]; then
+	echo "Failed to clone \"${target_URL}\""
+        exit 2
+fi
+echo "Done."
+
+mv -f ./dist/* /tmp/upstream/
+
+cd /tmp/upstream/
+
+git add -N .
+if git diff-files --quiet --; then
+	echo "Nothing to commit"
+	exit 0
+fi
+
+echo_headline "Commiting"
+hub add --all
+hub commit -m "Site update:$(date -u)"
+if [ $? -ne 0 ]; then
+	echo "Commit failed"
+        exit 2
+fi
+echo "Done."
+echo_headline "Creating local fork"
+hub fork
+if [ $? -ne 0 ]; then
+	echo "Local fork failed"
+        exit 2
+fi
+echo "Done."
+
+echo_headline "Pushing to \"${BOT_NAME}\" fork"
+fork_URL="https://${BOT_NAME}:${BOT_TK}@github.com/"
+fork_URL+="${BOT_NAME}/${TARGET_REPO_NAME}.git"
+git remote set-url "${BOT_NAME}" "${fork_URL}"
+                                             #To prevent token leak"
+hub push -f "${BOT_NAME}" "${TARGET_BRANCH}" > /dev/null 2>&1 
+if [ $? -ne 0 ]; then
+	echo "Pushing to \"${BOT_NAME}\" fork failed"
+        exit 2
+fi
+echo "Done."
+
+echo_headline "Opening PR to \"${target_URL}\""
+echo "Site update(auto)" > msg
+echo "Повежливее плизки )))" >> msg
+hub pull-request -F msg
+echo "Deploy succseeded."
+
+exit 0

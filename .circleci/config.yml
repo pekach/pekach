@@ -3,12 +3,26 @@
 version: 2.0
 general:
   branches:
-    ignore:
-      - gh-pages
+    only:
+      - master
 jobs:
   build:
     docker:
       - image: pekach/ts-devtools-base
+        environment:
+          TARGET_REPO_NAME: pekach.github.io
+          TARGET_BRANCH: master
     steps:
       - checkout
-      - run: bash ./.circleci/build
+      - run:
+          name: Build
+          command: ./.circleci/build
+      - run:
+          name: Test
+          command: ./.circleci/test
+      - deploy:
+          name: Deploy to gh-pages
+          command: |
+            if [ -z "${CIRCLE_PR_NUMBER}" ]; then
+              ./.circleci/deploy
+            fi
