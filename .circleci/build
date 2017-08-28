@@ -12,7 +12,7 @@ fi
 echo "Done."
 
 echo_headline "Build project"
-ng build --no-progress
+ng build --prod --no-progress
 if [ $? -ne 0 ]; then
 	echo "Project build failed"
         exit 2
