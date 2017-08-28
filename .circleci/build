@@ -16,7 +16,7 @@ fi
 echo "Done."
 
 echo_headline "Installing dependencies"
-ng build
+ng build --progres
 if [ $? -ne 0 ]; then
 	echo "Project build failed"
         exit 2
