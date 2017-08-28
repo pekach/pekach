@@ -8,20 +8,19 @@ echo_headline () {
 }
 
 echo_headline "Installing dependencies"
-npm install --silent --no-progress > /dev/null
+npm install --no-progress
 if [ $? -ne 0 ]; then
 	echo "Dependency installation failed"
         exit 2
 fi
 echo "Done."
 
-echo_headline "Installing dependencies"
-ng build --progres
+echo_headline "Build project"
+ng build --no-progress
 if [ $? -ne 0 ]; then
 	echo "Project build failed"
         exit 2
 fi
 echo "Done."
-
 
 echo "Build succseeded."
