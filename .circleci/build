@@ -3,20 +3,11 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "${DIR}/shared"
 
-echo_headline "Installing dependencies"
-npm install --no-progress
-if [ $? -ne 0 ]; then
-	echo "Dependency installation failed"
-        exit 2
-fi
-echo "Done."
-
-echo_headline "Build project"
-ng build --prod --no-progress
+echo_headline "Building project"
+ng build --prod --no-progress --output-hashing none
 if [ $? -ne 0 ]; then
 	echo "Project build failed"
         exit 2
 fi
-echo "Done."
 
 echo "Build succseeded."

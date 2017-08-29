@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "${DIR}/shared"
+
+echo_headline "Installing dependencies"
+npm install --no-progress
+if [ $? -ne 0 ]; then
+	echo "Dependency installation failed"
+        exit 2
+fi
+
+echo "Dependency installation succseeded."
