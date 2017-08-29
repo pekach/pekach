@@ -35,7 +35,7 @@ cd /tmp/upstream/
 
 git add --all
 git diff --cached --exit-code
-if [ $? -eq 0 ] then
+if [ $? -eq 0 ]; then
 	echo "Nothing to commit"
 	exit 0
 fi
