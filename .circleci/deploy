@@ -33,14 +33,14 @@ mv -f ./dist/* /tmp/upstream/
 
 cd /tmp/upstream/
 
-git add -N .
-if git diff-files --quiet --; then
+git add --all
+git diff --cached --exit-code
+if [ $? -eq 0 ] then
 	echo "Nothing to commit"
 	exit 0
 fi
 
 echo_headline "Commiting"
-hub add --all
 hub commit -m "Site update:$(date -u)"
 if [ $? -ne 0 ]; then
 	echo "Commit failed"
