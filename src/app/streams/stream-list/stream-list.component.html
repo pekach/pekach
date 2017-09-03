@@ -1,5 +1,5 @@
 <div>
-  <a *ngFor="let stream of streams$ | async" [routerLink]="'/stream/' + stream.slug">
+  <a style="display:block; margin-bottom: 1em;" *ngFor="let stream of streams$ | async" [routerLink]="'/stream/' + stream.slug">
     {{ stream | json }}
   </a>
 </div>

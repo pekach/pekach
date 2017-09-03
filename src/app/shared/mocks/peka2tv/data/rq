@@ -1,0 +1,3 @@
+url: https://funstream.tv/api/content
+type: POST
+data: {"content" : "stream", "type" : "all", category : {"slug" : "top"}}
