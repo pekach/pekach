@@ -12,6 +12,8 @@ import { StreamsModule } from 'app/streams';
 import { SharedModule } from 'app/shared';
 import { StatesModule } from 'app/states';
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -20,7 +22,10 @@ import { StatesModule } from 'app/states';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     StreamsModule,
-    CoreModule
+    CoreModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 15
+    })
   ],
   bootstrap: [CoreModule.bootstrap]
 })

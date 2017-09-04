@@ -1,12 +1,10 @@
-import { ActionReducer, ActionReducerMap, combineReducers } from '@ngrx/store';
+import { ActionReducerMap } from '@ngrx/store';
 import { routerReducer } from '@ngrx/router-store';
 
+import { States } from './states'
 import * as fromStreams from './streams/streams.reducer';
 
-export interface States {
-  streams: fromStreams.State;
-}
-
 export const reducers: ActionReducerMap<States> = {
-  streams: fromStreams.reducer
+  streams: fromStreams.reducer,
+  routerReducer: routerReducer
 };
