@@ -8,9 +8,9 @@ export const singollo: Stream = {
   startedAt: 0,
   players: [
     {
-      id: 'twitch.tv',
-      online: true,
-      channel: 'singollo'
+      type: 'twitch.tv',
+      channel: 'singollo',
+      online: true
     }
   ]
 };

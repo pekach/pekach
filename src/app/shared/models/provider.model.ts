@@ -1,5 +1,5 @@
 export interface Provider {
-  id: string;
-  online: boolean;
+  type: string;
   channel: string;
+  online: boolean;
 }

@@ -1,9 +1,9 @@
 export const environment = {
   production: false,
   database: {
-    apiKey: 'AIzaSyAqnrzlqFzJwsItrXPn27MaOAusrgfrnh0',
-    authDomain: 'pekach-2c877.firebaseapp.com',
-    databaseURL: 'https://pekach-2c877.firebaseio.com/',
-    projectId: 'pekach-2c877'
+    apiKey: '',
+    authDomain: 'jaremko-pekach.firebaseapp.com',
+    databaseURL: 'https://jaremko-pekach.firebaseapp.com',
+    projectId: 'jaremko-pekach'
   }
 };

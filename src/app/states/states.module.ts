@@ -8,11 +8,16 @@ import { reducers } from './reducers';
 
 import { StreamService } from '../shared';
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 @NgModule({
   imports: [
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot(effects),
     StoreRouterConnectingModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 100
+    }),
   ],
   providers: [StreamService]
 })
