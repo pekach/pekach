@@ -10,42 +10,42 @@ import { Router } from '@angular/router';
 // import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
-  selector: 'ch-root',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './root.component.html',
-  styleUrls: ['../../../less/bootstrapper.less']
+    selector: 'ch-root',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './root.component.html',
+    styleUrls: []
 })
 export class RootComponent implements OnInit {
-  // user: Observable<firebase.User>;
+    // user: Observable<firebase.User>;
 
-  ngOnInit() {
+    ngOnInit() {
+        /*
+          this.router.events
+          .filter(event => event instanceof NavigationEnd)
+          .subscribe((e) => console.log(e));
+        */
+    }
+
+    constructor(
+        /* protected afAuth: AngularFireAuth,
+        protected db: AngularFireDatabase, */
+        protected router: Router,
+        private titleService: Title
+    ) {
+        // this.user = afAuth.authState;
+
+        // const values = this.db.list('streams');
+
+        // (window as any).vls = this.db.list('streams');
+    }
+
     /*
-      this.router.events
-      .filter(event => event instanceof NavigationEnd)
-      .subscribe((e) => console.log(e));
+      login() {
+        this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      }
+
+      logout() {
+        this.afAuth.auth.signOut();
+      }
     */
-  }
-
-  constructor(
-    /* protected afAuth: AngularFireAuth,
-    protected db: AngularFireDatabase, */
-    protected router: Router,
-    private titleService: Title
-  ) {
-    // this.user = afAuth.authState;
-
-    // const values = this.db.list('streams');
-
-    // (window as any).vls = this.db.list('streams');
-  }
-
-/*
-  login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  }
-
-  logout() {
-    this.afAuth.auth.signOut();
-  }
-*/
 }

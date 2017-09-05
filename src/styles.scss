@@ -1,0 +1,63 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$peka-primary: mat-palette($mat-yellow);
+$peka-accent:  mat-palette($mat-amber, A200, A100, A400);
+$peka-warn:    mat-palette($mat-deep-orange);
+
+$peka-theme:   mat-dark-theme($peka-primary, $peka-accent, $peka-warn);
+//$peka-theme:   mat-light-theme($peka-primary, $peka-accent, $peka-warn);
+
+@include angular-material-theme($peka-theme);
+
+html,
+body {
+  @extend .mat-app-background;
+  height: 100%;
+  margin: 0;
+//  overflow: hidden;
+  padding: 0;
+}
+
+.logo {
+  //height: 1.5em;
+  font-size: 1.8em;
+}
+
+.flex-spacer {
+  flex-grow: 1;
+}
+
+.shady-toolbar {
+  @extend .mat-elevation-z5
+}
+
+.main-navbtn {
+  font-weight: bold;
+}
+
+.stream-card {
+  height: 85%;
+  width: 90%
+}
+
+.stream-card-head {
+  position:relative;
+  height: 20%
+
+}
+
+.stream-card-body {
+  position:relative;
+  height: 80%;
+}
+
+.stream-card-thumb{
+  display: block;
+  @media screen and (max-width: 1200px) {
+    display:none;
+  }
+  max-height: 100%;
+  max-width: 100%;
+}

@@ -7,18 +7,29 @@ import { RootComponent } from './root';
 import { AuthenticationGuard } from './guards';
 import { routes } from './core.routes';
 
+import {
+    MdButtonModule,
+    MdToolbarModule,
+    MdIconModule,
+    MdMenuModule
+} from '@angular/material';
+
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-  declarations: [
-    RootComponent,
-    NotFoundComponent
-  ],
-  providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
-  ]
+    imports: [
+        RouterModule.forRoot(routes),
+        MdButtonModule,
+        MdToolbarModule,
+        MdIconModule,
+        MdMenuModule
+    ],
+    declarations: [
+        RootComponent,
+        NotFoundComponent
+    ],
+    providers: [
+        { provide: LocationStrategy, useClass: HashLocationStrategy }
+    ]
 })
 export class CoreModule {
-  static bootstrap: Array<Type<any> | any[]> = [RootComponent];
+    static bootstrap: Array<Type<any> | any[]> = [RootComponent];
 }

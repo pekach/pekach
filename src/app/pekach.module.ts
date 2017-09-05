@@ -5,6 +5,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { environment } from 'environments/environment';
 
 import { CoreModule } from 'app/core';
@@ -19,6 +21,7 @@ import { StatesModule } from 'app/states';
         AngularFireModule.initializeApp(environment.database),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
+        BrowserAnimationsModule,
         StreamsModule,
         CoreModule
     ],

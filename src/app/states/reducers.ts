@@ -1,10 +1,20 @@
+import { Params } from '@angular/router';
 import { ActionReducerMap } from '@ngrx/store';
-import { routerReducer } from '@ngrx/router-store';
+import { routerReducer, RouterReducerState } from '@ngrx/router-store';
 
-import { States } from './states'
 import * as fromStreams from './streams/streams.reducer';
 
+export interface RouterStateUrl {
+    url: string;
+    queryParams: Params;
+}
+
+export interface States {
+    streams: fromStreams.State;
+    routerReducer: RouterReducerState<RouterStateUrl>;
+}
+
 export const reducers: ActionReducerMap<States> = {
-  streams: fromStreams.reducer,
-  routerReducer: routerReducer
+    streams: fromStreams.reducer,
+    routerReducer: routerReducer
 };
