@@ -8,11 +8,6 @@ export interface RouterStateUrl {
   queryParams: Params;
 }
 
-export interface RouterStateUrl {
-  url: string;
-  queryParams: Params;
-}
-
 export interface States {
   streams: fromStreams.State;
   routerReducer: RouterReducerState<RouterStateUrl>;
