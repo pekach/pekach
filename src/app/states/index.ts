@@ -1,5 +1,3 @@
-import * as fromStreams from './streams/streams.reducer';
-
 export { StatesModule } from './states.module';
 
 export * from './reducers';
