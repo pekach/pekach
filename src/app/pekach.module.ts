@@ -12,21 +12,16 @@ import { StreamsModule } from 'app/streams';
 import { SharedModule } from 'app/shared';
 import { StatesModule } from 'app/states';
 
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
 @NgModule({
-  imports: [
-    CommonModule,
-    StatesModule,
-    AngularFireModule.initializeApp(environment.database),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    StreamsModule,
-    CoreModule,
-    StoreDevtoolsModule.instrument({
-      maxAge: 15
-    })
-  ],
-  bootstrap: [CoreModule.bootstrap]
+    imports: [
+        CommonModule,
+        StatesModule,
+        AngularFireModule.initializeApp(environment.database),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule,
+        StreamsModule,
+        CoreModule
+    ],
+    bootstrap: [CoreModule.bootstrap]
 })
-export class PekachModule {}
+export class PekachModule { }

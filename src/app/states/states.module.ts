@@ -9,6 +9,8 @@ import { reducers } from './reducers';
 import { Params, RouterStateSnapshot } from '@angular/router';
 import { RouterStateSerializer } from '@ngrx/router-store';
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { StreamService } from '../shared';
 
 import { RouterStateUrl } from './states';
@@ -26,7 +28,10 @@ export class TimeTravelingStateSerializer implements
     imports: [
         StoreModule.forRoot(reducers),
         EffectsModule.forRoot(effects),
-        StoreRouterConnectingModule
+        StoreRouterConnectingModule,
+        StoreDevtoolsModule.instrument({
+            maxAge: 15
+        })
     ],
     providers: [
         StreamService,
