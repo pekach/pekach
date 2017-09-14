@@ -14,26 +14,26 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StreamService } from '../shared';
 
 export class TimeTravelingStateSerializer implements
-    RouterStateSerializer<RouterStateUrl> {
-    serialize(routerState: RouterStateSnapshot): RouterStateUrl {
-        const { url } = routerState;
-        const queryParams = routerState.root.queryParams;
-        return { url, queryParams };
-    }
+RouterStateSerializer<RouterStateUrl> {
+  serialize(routerState: RouterStateSnapshot): RouterStateUrl {
+    const { url } = routerState;
+    const queryParams = routerState.root.queryParams;
+    return { url, queryParams };
+  }
 }
 
 @NgModule({
-    imports: [
-        StoreModule.forRoot(reducers),
-        EffectsModule.forRoot(effects),
-        StoreRouterConnectingModule,
-        StoreDevtoolsModule.instrument({
-            maxAge: 15
-        })
-    ],
-    providers: [
-        StreamService,
-        { provide: RouterStateSerializer, useClass: TimeTravelingStateSerializer }
-    ]
+  imports: [
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot(effects),
+    StoreRouterConnectingModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 15
+    })
+  ],
+  providers: [
+    StreamService,
+    { provide: RouterStateSerializer, useClass: TimeTravelingStateSerializer }
+  ]
 })
 export class StatesModule { }

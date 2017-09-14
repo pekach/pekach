@@ -15,16 +15,16 @@ import { SharedModule } from 'app/shared';
 import { StatesModule } from 'app/states';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        StatesModule,
-        AngularFireModule.initializeApp(environment.database),
-        AngularFireDatabaseModule,
-        AngularFireAuthModule,
-        BrowserAnimationsModule,
-        StreamsModule,
-        CoreModule
-    ],
-    bootstrap: [CoreModule.bootstrap]
+  imports: [
+    CommonModule,
+    StatesModule,
+    AngularFireModule.initializeApp(environment.database),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    StreamsModule,
+    CoreModule
+  ],
+  bootstrap: [CoreModule.bootstrap]
 })
 export class PekachModule { }

@@ -9,8 +9,8 @@ export { CyberGameProvider } from './CyberGame.model';
 export { LiveProvider, Provider } from './common.model';
 
 export type LiveProviders =
-    GoodGameProvider |
-    TwitchProvider |
-    CyberGameProvider;
+  GoodGameProvider |
+  TwitchProvider |
+  CyberGameProvider;
 
 export type Providers = LiveProvider<LiveProviders['source']>

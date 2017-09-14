@@ -16,21 +16,21 @@ import { StreamService } from 'app/shared';
 
 @Injectable()
 export class StreamEffects {
-    @Effect()
-    addStream$: Observable<Action> = this.actions$
-        .ofType(ActionTypes.ADD_STREAM)
-        .map((action: StreamsActions.AddStreamAction) => action.payload)
-        .switchMap(message => empty());
+  @Effect()
+  addStream$: Observable<Action> = this.actions$
+    .ofType(ActionTypes.ADD_STREAM)
+    .map((action: StreamsActions.AddStreamAction) => action.payload)
+    .switchMap(message => empty());
 
-    @Effect()
-    subscribeToStreams$: Observable<Action> = this.actions$
-        .ofType(ActionTypes.FETCH_STREAMS)
-        .switchMap(() => this.streamService.Subscribe())
-        .map((results) => new StreamsActions.FetchStreamsSuccessAction(results))
-        .catch(() => of(new StreamsActions.FetchStreamsFailureAction([])));
+  @Effect()
+  subscribeToStreams$: Observable<Action> = this.actions$
+    .ofType(ActionTypes.FETCH_STREAMS)
+    .switchMap(() => this.streamService.Subscribe())
+    .map((results) => new StreamsActions.FetchStreamsSuccessAction(results))
+    .catch(() => of(new StreamsActions.FetchStreamsFailureAction([])));
 
-    constructor(
-        protected actions$: Actions,
-        protected streamService: StreamService
-    ) { }
+  constructor(
+    protected actions$: Actions,
+    protected streamService: StreamService
+  ) { }
 }
