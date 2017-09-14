@@ -23,14 +23,14 @@ export class StreamEffects {
     .switchMap(message => empty());
 
   @Effect()
-  getStreams$: Observable<Action> = this.actions$
+  subscribeToStreams$: Observable<Action> = this.actions$
     .ofType(ActionTypes.FETCH_STREAMS)
-    .switchMap(() => this.streamService.getStreams())
+    .switchMap(() => this.streamService.Subscribe())
     .map((results) => new StreamsActions.FetchStreamsSuccessAction(results))
     .catch(() => of(new StreamsActions.FetchStreamsFailureAction([])));
 
   constructor(
     protected actions$: Actions,
     protected streamService: StreamService
-  ) {}
+  ) { }
 }

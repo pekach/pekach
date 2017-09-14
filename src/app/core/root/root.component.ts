@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   selector: 'ch-root',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './root.component.html',
-  styleUrls: ['../../../less/bootstrapper.less']
+  styleUrls: []
 })
 export class RootComponent implements OnInit {
   // user: Observable<firebase.User>;
@@ -28,7 +28,7 @@ export class RootComponent implements OnInit {
 
   constructor(
     /* protected afAuth: AngularFireAuth,
-    protected db: AngularFireDatabase, */
+       protected db: AngularFireDatabase, */
     protected router: Router,
     private titleService: Title
   ) {
@@ -39,13 +39,13 @@ export class RootComponent implements OnInit {
     // (window as any).vls = this.db.list('streams');
   }
 
-/*
-  login() {
+  /*
+    login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  }
+    }
 
-  logout() {
+    logout() {
     this.afAuth.auth.signOut();
-  }
-*/
+    }
+  */
 }

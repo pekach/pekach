@@ -7,9 +7,20 @@ import { RootComponent } from './root';
 import { AuthenticationGuard } from './guards';
 import { routes } from './core.routes';
 
+import {
+  MdButtonModule,
+  MdToolbarModule,
+  MdIconModule,
+  MdMenuModule
+} from '@angular/material';
+
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MdButtonModule,
+    MdToolbarModule,
+    MdIconModule,
+    MdMenuModule
   ],
   declarations: [
     RootComponent,
