@@ -1,6 +1,10 @@
 ---
 # Circle CI YAML file
 version: 2.0
+general:
+  branches:
+    only:
+      - master
 jobs:
   build:
     docker:
