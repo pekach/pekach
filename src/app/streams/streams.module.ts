@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from 'app/shared';
 
 import { StreamComponent } from './stream/stream.component';
 import { StreamListComponent } from './stream-list/stream-list.component';
@@ -16,17 +17,14 @@ import {
 } from '@angular/material';
 
 import { routes } from './streams.routes';
-import { FmtStreamsPipeComponent } from './pipes';
-
 @NgModule({
   declarations: [
     StreamComponent,
     StreamListComponent,
     StreamPreviewComponent,
-    FmtStreamsPipeComponent
   ],
-  providers: [FmtStreamsPipeComponent],
   imports: [
+    SharedModule,
     BrowserModule,
     RouterModule.forChild(routes),
     MdButtonModule,

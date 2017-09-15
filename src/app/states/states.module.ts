@@ -1,23 +1,19 @@
 import { NgModule } from '@angular/core';
+import { Params, RouterStateSnapshot } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { effects } from './effects';
 import { reducers, RouterStateUrl } from './reducers';
+import { StreamService } from 'app/shared';
 
-import { Params, RouterStateSnapshot } from '@angular/router';
-import { RouterStateSerializer } from '@ngrx/router-store';
-
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
-import { StreamService } from '../shared';
-
-export class TimeTravelingStateSerializer implements
-RouterStateSerializer<RouterStateUrl> {
+export class TimeTravelingStateSerializer implements RouterStateSerializer<RouterStateUrl> {
   serialize(routerState: RouterStateSnapshot): RouterStateUrl {
     const { url } = routerState;
-    const queryParams = routerState.root.queryParams;
+    const { queryParams } = routerState.root;
+
     return { url, queryParams };
   }
 }
@@ -27,9 +23,7 @@ RouterStateSerializer<RouterStateUrl> {
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot(effects),
     StoreRouterConnectingModule,
-    StoreDevtoolsModule.instrument({
-      maxAge: 15
-    })
+    StoreDevtoolsModule.instrument({ maxAge: 15 })
   ],
   providers: [
     StreamService,

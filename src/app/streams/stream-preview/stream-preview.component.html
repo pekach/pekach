@@ -1,7 +1,18 @@
-<div class="col-sm-12 col-xs-12 col-md-4 col-lg-3">
-  <div class="thumbnail bootsnipp-thumb">
-    <div style="overflow: hidden; padding-left: 10px; position: relative; height: 195px;">
-      sample code
-    </div>
-  </div>
-</div>
+<md-card class="stream-card">
+  <md-card-header class="stream-card-head">
+    <img md-card-avatar [src]="logo" />
+    <md-card-title>
+      <span>{{ stream.displayName || stream.slug }}</span>
+    </md-card-title>
+    <md-card-subtitle>{{ title }}</md-card-subtitle>
+      <md-chip-list>
+        <md-chip *ngIf="live" color="primary" selected="true">Live!</md-chip>
+        <md-chip>Category: <b>{{ stream.category }}</b></md-chip>
+      </md-chip-list>
+  </md-card-header>
+  <md-card-content class="stream-card-content">
+    <a [routerLink]="'/stream/' + stream.slug">
+      <img class="stream-card-thumb" [src]="thumbnail" [chFallback]="'/assets/img/pekatumb.jpg'" />
+    </a>
+  </md-card-content>
+</md-card>

@@ -15,12 +15,12 @@ import {
 
 @Injectable()
 export class AuthenticationGuard implements CanActivate {
-  constructor(protected router: Router, private auth: AngularFireAuth) {}
-
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
     return this.auth.authState
       .take(1)
       .map(authState => !!authState)
       .do(auth => !auth ? this.router.navigate(['/login']) : true);
   }
+
+  constructor(protected router: Router, private auth: AngularFireAuth) {}
 }

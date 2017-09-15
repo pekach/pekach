@@ -1,6 +1,7 @@
 import { Stream } from '../../shared';
 
-export const singollo: Stream = {
+/*
+export const stream: Stream = {
   id: 1,
   online: true,
   logo: 'bar',
@@ -13,6 +14,8 @@ export const singollo: Stream = {
   category: 'baz',
   title: 'qux',
   thumbnail: '//kek.pek',
-  providers: { 'test': 'url...' }
+  providers: { 'test': { } }
 }
-export const STREAMS: Array<Stream> = [singollo];
+*/
+
+export const STREAMS: Array<Stream> = [];
