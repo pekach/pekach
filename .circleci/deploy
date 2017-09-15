@@ -29,12 +29,12 @@ if [ $? -ne 0 ]; then
 fi
 echo "Done."
 
-mv -f ./dist/* /tmp/upstream/
+rsync -a ./dist/ /tmp/upstream/
 
 cd /tmp/upstream/
 
 git add --all
-git diff --cached --exit-code
+git diff --cached --exit-code  > /dev/null 2>&1
 if [ $? -eq 0 ]; then
 	echo "Nothing to commit"
 	exit 0
