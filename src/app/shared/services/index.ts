@@ -1,1 +1,1 @@
-export { StreamService } from './stream.service';
+export * from './streams';

@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
+import { Stream } from 'app/shared';
+
 import { ActionTypes } from './action.types';
-import { Stream } from '../../shared';
 
 export class AddStreamAction implements Action {
   readonly type = ActionTypes.ADD_STREAM;

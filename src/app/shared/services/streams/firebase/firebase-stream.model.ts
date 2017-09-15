@@ -1,18 +1,17 @@
-import { Provider } from './providers';
-import { HashMap } from './hashmap.model';
+import { Provider, HashMap } from 'app/shared';
 
-export interface Stream {
+export interface FirebaseStream {
   id: number;
   online: boolean;
   createdAt: number;
   updatedAt: number;
   lang: string;
-  displayName: string;
+  display_name: string;
   slug: string;
   logo: string;
   category: string;
   title: string;
   mature: boolean;
   thumbnail: string;
-  providers: Array<Provider>;
+  providers: HashMap<boolean>;
 }

@@ -9,8 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 export class StreamComponent implements OnInit {
   ngOnInit() {
     // this.activatedRoute.params.subscribe(params => console.log(params['key'])); switch map for this
-    console.log(this.activatedRoute.snapshot);
+    // console.log(this.activatedRoute.snapshot);
   }
 
-  constructor(protected activatedRoute: ActivatedRoute) {}
+  constructor(protected activatedRoute: ActivatedRoute) { }
 }

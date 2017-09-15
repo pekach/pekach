@@ -1,4 +1,4 @@
-import { Stream } from '../../shared/models/stream.model';
+import { Stream } from 'app/shared';
 import { ActionTypes } from './action.types';
 
 import * as StreamsActions from './streams.actions';
