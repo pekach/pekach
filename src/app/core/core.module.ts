@@ -1,6 +1,8 @@
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { NgModule, Type } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { NotFoundComponent } from './errors';
 import { RootComponent } from './root';
@@ -17,10 +19,11 @@ import {
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
     MdButtonModule,
     MdToolbarModule,
     MdIconModule,
-    MdMenuModule
+    MdMenuModule,
   ],
   declarations: [
     RootComponent,

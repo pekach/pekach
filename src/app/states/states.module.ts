@@ -7,7 +7,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { effects } from './effects';
 import { reducers, RouterStateUrl } from './reducers';
-import { StreamService } from 'app/shared';
 
 export class TimeTravelingStateSerializer implements RouterStateSerializer<RouterStateUrl> {
   serialize(routerState: RouterStateSnapshot): RouterStateUrl {
@@ -26,7 +25,6 @@ export class TimeTravelingStateSerializer implements RouterStateSerializer<Route
     StoreDevtoolsModule.instrument({ maxAge: 15 })
   ],
   providers: [
-    StreamService,
     { provide: RouterStateSerializer, useClass: TimeTravelingStateSerializer }
   ]
 })

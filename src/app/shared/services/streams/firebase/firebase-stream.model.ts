@@ -13,5 +13,5 @@ export interface FirebaseStream {
   title: string;
   mature: boolean;
   thumbnail: string;
-  providers: HashMap<Provider>;
+  providers: HashMap<boolean>;
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from '@angular/material';
 
 import { RootComponent } from './root.component';
 
@@ -9,7 +10,10 @@ describe('RootComponent', () => {
     async(() => {
       const testingModule: NgModule = {
         declarations: [RootComponent],
-        imports: [RouterTestingModule.withRoutes([])]
+        imports: [
+          MaterialModule,
+          RouterTestingModule.withRoutes([])
+        ]
       };
 
       TestBed
