@@ -1,11 +1,15 @@
 <article>
   <header class="heading-toolbar shady-toolbar">
-   Тащим лайв с <a href="https://jaremko-pekach.firebaseio.com/.json?print=pretty">
-   Firebase</a>
+    <span>
+      Тащим лайв с <a href="https://jaremko-pekach.firebaseio.com/.json?print=pretty">
+      Firebase</a>
+    </span>
   </header>
-  <md-grid-list class="streams-container" cols="4" rowHeight="6:5" gutterSize="1em">
-    <md-grid-tile *ngFor="let stream of streams$ | async">
-      <ch-stream-preview [stream]="stream" style="height: 100%; width: 100%"></ch-stream-preview>
-    </md-grid-tile>
-  </md-grid-list>
+  <section class="streams-container">
+  <ul class="stream-list">
+    <li class="stream-list-item" *ngFor="let stream of streams$ | async">
+      <ch-stream-preview [stream]="stream" class="stream-card-conteiner"></ch-stream-preview>
+    </li>
+  </ul>
+  </section>
 </article>
