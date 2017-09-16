@@ -4,6 +4,7 @@ export interface Provider {
   id: number;
   url: string;
   source: ProviderType;
+  category: string;
   slug: string;
   published: boolean;
   createdAt: number;

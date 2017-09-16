@@ -31,8 +31,7 @@ body,
 }
 
 .logo {
-  //height: 1.5em;
-  font-size: 1.8em;
+  font-size: 160%;
 }
 
 .flex-spacer {
@@ -55,6 +54,10 @@ body,
   font-weight: bold;
 }
 
+.streams-container{
+  margin: 1em;
+}
+
 .stream-card {
   height: 85%;
   width: 90%
@@ -66,12 +69,21 @@ body,
 
 }
 
+.mat-card-title {
+  font-weight: bold;
+}
+
+.stream-card-tags {
+  position: absolute;
+  right: 0px;
+}
+
 .stream-card-body {
   position:relative;
   height: 80%;
 }
 
-.stream-card-thumb{
+.stream-card-thumb {
   display: block;
   @media screen and (max-width: 1200px) {
     display:none;
