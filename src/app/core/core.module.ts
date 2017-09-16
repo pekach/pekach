@@ -13,7 +13,8 @@ import {
   MdButtonModule,
   MdToolbarModule,
   MdIconModule,
-  MdMenuModule
+  MdMenuModule,
+  MdSlideToggleModule
 } from '@angular/material';
 
 @NgModule({
@@ -24,6 +25,7 @@ import {
     MdToolbarModule,
     MdIconModule,
     MdMenuModule,
+    MdSlideToggleModule
   ],
   declarations: [
     RootComponent,

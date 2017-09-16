@@ -1,10 +1,7 @@
 <article>
-  <header>
-    <md-toolbar class="shady-toolbar" color="primary">
-      <b>Тащим лайв с <a href="https://jaremko-pekach.firebaseio.com/.json?print=pretty">
-        https://jaremko-pekach.firebaseio.com</a>
-      </b>
-    </md-toolbar>
+  <header class="heading-toolbar shady-toolbar">
+   Тащим лайв с <a href="https://jaremko-pekach.firebaseio.com/.json?print=pretty">
+   Firebase</a>
   </header>
   <md-grid-list cols="4" rowHeight="6:5" gutterSize="1em">
     <md-grid-tile class="stream-card-container" *ngFor="let stream of streams$ | async">

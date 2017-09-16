@@ -2,22 +2,32 @@
 
 @include mat-core();
 
-$peka-primary: mat-palette($mat-yellow);
-$peka-accent:  mat-palette($mat-amber, A200, A100, A400);
+$peka-primary: mat-palette($mat-amber, A200, A100, A400);
+$peka-accent:  mat-palette($mat-amber, 200, 100, 400);
 $peka-warn:    mat-palette($mat-deep-orange);
 
-$peka-theme:   mat-dark-theme($peka-primary, $peka-accent, $peka-warn);
-//$peka-theme:   mat-light-theme($peka-primary, $peka-accent, $peka-warn);
+$peka-dark-theme: mat-dark-theme($peka-primary, $peka-accent, $peka-warn);
+$peka-light-theme: mat-light-theme($peka-primary, $peka-accent, $peka-warn);
 
-@include angular-material-theme($peka-theme);
+@include angular-material-theme($peka-dark-theme);
+
+.peka-dark-theme {
+  @extend .mat-app-background;
+}
+
+.peka-light-theme {
+  @include angular-material-theme($peka-light-theme);
+  background: whitesmoke;
+}
 
 html,
-body {
-  @extend .mat-app-background;
+body,
+.root-container {
   height: 100%;
+  width: 100%;
   margin: 0;
-//  overflow: hidden;
   padding: 0;
+  display: block;
 }
 
 .logo {
@@ -30,10 +40,18 @@ body {
 }
 
 .shady-toolbar {
-  @extend .mat-elevation-z5
+  @extend .mat-elevation-z1
 }
 
 .main-navbtn {
+  font-weight: bold;
+}
+
+.heading-toolbar {
+  @extend .mat-toolbar;
+  @extend .mat-accent;
+  padding-left: 1em;
+  font-size: 100%;
   font-weight: bold;
 }
 
