@@ -74,8 +74,12 @@ body,
 }
 
 .stream-card-tags {
-  position: absolute;
-  right: 0px;
+  display: block;
+  margin-top: 0.5em;
+  & > .mat-chip-list-wrapper > md-chip {
+    order: 2;
+    margin-left: auto;
+  }
 }
 
 .stream-card-body {
