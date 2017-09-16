@@ -20,7 +20,7 @@
       </a>
       <span class="flex-spacer">
       </span>
-      <md-slide-toggle
+      <md-button-toggle
         onclick="
            var cnt = document.querySelector('.root-container');
            var lc = 'peka-light-theme';
@@ -31,7 +31,10 @@
            } else {
              cnt.classList.remove(dc);
              cnt.classList.add(lc);
-           }"></md-slide-toggle>
+           }">
+        <md-icon>brightness_6</md-icon>
+        <span></span>
+      </md-button-toggle>
       <a md-raised-button
         class="main-navbtn"
         [mdMenuTriggerFor]="menu">
