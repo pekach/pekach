@@ -1,15 +1,13 @@
 <article>
   <header class="heading-toolbar shady-toolbar">
-    <span>
-      Тащим лайв с <a href="https://jaremko-pekach.firebaseio.com/.json?print=pretty">
-      Firebase</a>
-    </span>
+    Тащим лайв с <a href="https://jaremko-pekach.firebaseio.com/.json?print=pretty">
+    Firebase</a>
   </header>
   <section class="streams-container">
-  <ul class="stream-list">
-    <li class="stream-list-item" *ngFor="let stream of streams$ | async">
-      <ch-stream-preview [stream]="stream" class="stream-card-conteiner"></ch-stream-preview>
-    </li>
-  </ul>
+    <ul class="stream-list">
+      <li class="stream-list-item" *ngFor="let stream of streams$ | async">
+        <ch-stream-preview [stream]="stream" class="stream-card-conteiner"></ch-stream-preview>
+      </li>
+    </ul>
   </section>
 </article>

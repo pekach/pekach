@@ -1,85 +1,57 @@
-<content class="root-container peka-light-theme">
-  <header class="shady-toolbar">
-    <md-toolbar>
-      <a md-button class="main-navbtn" class="logo" routerLink="/">
-      <img src="assets/img/peka.png"/>
-      <span>Пека.ch</span>
+<content class="root-container" [ngClass]="[colorThemeClass]">
+  <header>
+    <md-toolbar  class="main-navbtn">
+      <a md-button class="logo" routerLink="/">
+      <img src="assets/img/peka.png"/> <span>Пека.ch</span>
       </a>
       <a  md-raised-button
-        class="main-navbtn"
         routerLink="/streams"
         color="primary">
-        <md-icon>ondemand_video</md-icon>
-        <span>Watch</span>
+        <md-icon>ondemand_video</md-icon> <span>Watch</span>
       </a>
       <a md-raised-button
-        class="main-navbtn"
         routerLink="/add-streams">
-        <md-icon>add_box</md-icon>
-        <span>Add new streams</span>
+        <md-icon>add_box</md-icon> <span>Add new streams</span>
       </a>
       <span class="flex-spacer">
       </span>
-      <md-button-toggle
-        onclick="
-           var cnt = document.querySelector('.root-container');
-           var lc = 'peka-light-theme';
-           var dc = 'peka-dark-theme';
-           if (cnt.classList.contains(lc)) {
-             cnt.classList.remove(lc);
-             cnt.classList.add(dc);
-           } else {
-             cnt.classList.remove(dc);
-             cnt.classList.add(lc);
-           }">
-        <md-icon>brightness_6</md-icon>
-        <span></span>
+      <md-button-toggle (click)="toggleColorTheme()">
+        <md-icon>brightness_6</md-icon> <span></span>
       </md-button-toggle>
       <a md-raised-button
         class="main-navbtn"
         [mdMenuTriggerFor]="menu">
-        <md-icon>account_box</md-icon>
-        <span>Login</span>
+        <md-icon>account_box</md-icon> <span>Login</span>
         <md-menu #menu="mdMenu">
           <button md-menu-item disabled>
-            <md-icon>accessibility</md-icon>
-            <span>Нормальный аккаунт</span>
+            <md-icon>accessibility</md-icon> <span>Нормальный аккаунт</span>
           </button>
           <button md-menu-item>
-            <md-icon>people</md-icon>
-            <span>Для белых людей</span>
+            <md-icon>people</md-icon> <span>Для белых людей</span>
           </button>
           <button md-menu-item>
-            <md-icon>people_outline</md-icon>
-            <span>Для не белых</span>
+            <md-icon>people_outline</md-icon> <span>Для не белых</span>
           </button>
           <button md-menu-item>
-            <md-icon>accessible</md-icon>
-            <span>Аккаунт для инвалидов</span>
+            <md-icon>accessible</md-icon> <span>Аккаунт для инвалидов</span>
           </button>
           <button md-menu-item>
-            <md-icon>record_voice_over</md-icon>
-            <span>Крикунов</span>
+            <md-icon>record_voice_over</md-icon> <span>Крикунов</span>
           </button>
           <button md-menu-item>
-            <md-icon>pan_tool</md-icon>
-            <span>Дрочунов</span>
+            <md-icon>pan_tool</md-icon> <span>Дрочунов</span>
           </button>
           <button md-menu-item>
-            <md-icon>pregnant_woman</md-icon>
-            <span>Жирных</span>
+            <md-icon>pregnant_woman</md-icon> <span>Жирных</span>
           </button>
           <button md-menu-item>
-            <md-icon>pets</md-icon>
-            <span>Я котик :grumpy:</span>
+            <md-icon>pets</md-icon> <span>Я котик :grumpy:</span>
           </button>
           <button md-menu-item>
-            <md-icon>wc</md-icon>
-            <span>Туалет</span>
+            <md-icon>wc</md-icon> <span>Туалет</span>
           </button>
           <button md-menu-item>
-            <md-icon>sentiment_dissatisfied</md-icon>
-            <span>Для тебя</span>
+            <md-icon>sentiment_dissatisfied</md-icon> <span>Для тебя</span>
           </button>
         </md-menu>
       </a>
