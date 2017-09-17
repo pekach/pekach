@@ -72,10 +72,14 @@ $peka-light-theme: mat-light-theme($peka-primary, $peka-accent, $peka-warn);
 
 .stream-card {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  justify-content: space-between;
   width: 100%;
 
   .mat-card-header-text {
+    height: 3.4em;
     overflow: hidden;
 
     .mat-card-title {
