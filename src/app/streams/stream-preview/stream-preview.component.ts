@@ -37,4 +37,11 @@ export class StreamPreviewComponent {
       ? provider.title
       : this.stream.title;
   }
+
+  get category(): string {
+    const provider = this.stream.providers.find(p => !!p.category);
+    return provider
+      ? provider.category
+      : this.stream.category;
+  }
 }

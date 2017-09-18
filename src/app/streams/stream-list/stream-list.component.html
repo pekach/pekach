@@ -1,14 +1,13 @@
 <article>
-  <header>
-    <md-toolbar class="shady-toolbar" color="primary">
-      <b>Тащим лайв с <a href="https://jaremko-pekach.firebaseio.com/.json?print=pretty">
-        https://jaremko-pekach.firebaseio.com</a>
-      </b>
-    </md-toolbar>
+  <header class="heading-toolbar shady-toolbar">
+    Тащим лайв с <a href="https://jaremko-pekach.firebaseio.com/.json?print=pretty">
+    Firebase</a>
   </header>
-  <md-grid-list cols="4" rowHeight="6:5" gutterSize="1em">
-    <md-grid-tile class="stream-card-container" *ngFor="let stream of streams$ | async">
-      <ch-stream-preview [stream]="stream" style="height: 100%; width: 100%"></ch-stream-preview>
-    </md-grid-tile>
-  </md-grid-list>
+  <section class="streams-container">
+    <ul class="stream-list">
+      <li class="stream-list-item" *ngFor="let stream of streams$ | async">
+        <ch-stream-preview [stream]="stream" class="stream-card-conteiner"></ch-stream-preview>
+      </li>
+    </ul>
+  </section>
 </article>
