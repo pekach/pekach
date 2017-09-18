@@ -12,7 +12,6 @@ import {
   MdToolbarModule,
   MdIconModule,
   MdCardModule,
-  MdGridListModule,
   MdChipsModule
 } from '@angular/material';
 
@@ -31,7 +30,6 @@ import { routes } from './streams.routes';
     MdToolbarModule,
     MdIconModule,
     MdCardModule,
-    MdGridListModule,
     MdChipsModule
   ]
 })
