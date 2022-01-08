@@ -86,9 +86,24 @@
             "browserTarget": "pekach:build"
           }
         },
-        "test": {}
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {}
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        }
       }
     }
   },
-  "defaultProject": "pekach"
+  "defaultProject": "pekach",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
