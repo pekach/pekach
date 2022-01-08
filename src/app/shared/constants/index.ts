@@ -1,1 +1,1 @@
-export * from './provider-priority.constant';
+export * from "./provider-priority.constant";

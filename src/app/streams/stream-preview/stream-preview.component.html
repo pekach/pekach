@@ -1,16 +1,16 @@
-<md-card class="stream-card">
-  <md-card-header>
-    <img md-card-avatar [src]="logo" />
-    <md-card-title> {{ stream.displayName || stream.slug }} </md-card-title>
-    <md-card-subtitle> {{ title }} </md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
+<mat-card class="stream-card">
+  <mat-card-header>
+    <img mat-card-avatar [src]="logo" />
+    <mat-card-title> {{ stream.displayName || stream.slug }} </mat-card-title>
+    <mat-card-subtitle> {{ title }} </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <a [routerLink]="'/stream/' + stream.slug">
       <img class="stream-card-thumb" [src]="thumbnail" [chFallback]="'/assets/img/pekatumb.jpg'" />
     </a>
-    <md-chip-list class="stream-card-tags">
-      <md-chip *ngIf="live" color="primary" selected="true">Live!</md-chip>
-      <md-chip *ngIf="category">{{ category }}</md-chip>
-    </md-chip-list>
-  </md-card-content>
-</md-card>
+    <mat-chip-list class="stream-card-tags">
+      <mat-chip *ngIf="live" color="primary" selected="true">Live!</mat-chip>
+      <mat-chip *ngIf="category">{{ category }}</mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+</mat-card>

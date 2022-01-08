@@ -1,23 +1,26 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { map, Observable } from 'rxjs';
 
-import { States, Actions } from 'app/states';
-import { Stream } from 'app/shared';
+import { States } from '@app/store';
+import { Stream } from '@app/shared';
+import { fetchStreams } from '@app/store/streams';
 
 @Component({
   selector: 'ch-stream-list',
+  templateUrl: './stream-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './stream-list.component.html'
 })
-export class StreamListComponent {
+export class StreamListComponent implements OnInit {
   streams$: Observable<Array<Stream>>;
 
   constructor(private store: Store<States>) {
     this.streams$ = this.store
       .select('streams')
-      .map(state => state.streams);
+      .pipe(map((state) => state.streams));
+  }
 
-    this.store.dispatch(new Actions.Streams.FetchStreamsAction());
+  ngOnInit(): void {
+    this.store.dispatch(fetchStreams());
   }
 }

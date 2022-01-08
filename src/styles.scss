@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 @include mat-core();
 
@@ -50,7 +50,7 @@ $peka-light-theme: mat-light-theme($peka-primary, $peka-accent, $peka-warn);
   .stream-list {
     align-items: stretch;
     display: grid;
-    grid-gap: .5vw;
+    grid-gap: 0.5vw;
     grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
     margin: 0;
     padding: 0 1em;
@@ -66,7 +66,7 @@ $peka-light-theme: mat-light-theme($peka-primary, $peka-accent, $peka-warn);
   box-sizing: border-box;
   display: block;
   height: 100%;
-  padding: .5em;
+  padding: 0.5em;
   width: 100%;
 }
 
@@ -103,9 +103,9 @@ $peka-light-theme: mat-light-theme($peka-primary, $peka-accent, $peka-warn);
 
   .stream-card-tags {
     display: block;
-    margin-top: .8em;
+    margin-top: 0.8em;
 
-    md-chip {
+    mat-chip {
       margin-left: auto;
       order: 2;
     }

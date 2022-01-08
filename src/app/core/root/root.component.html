@@ -1,61 +1,61 @@
 <content class="root-container" [ngClass]="[colorThemeClass]">
   <header>
-    <md-toolbar  class="main-navbtn">
-      <a md-button class="logo" routerLink="/">
+    <mat-toolbar  class="main-navbtn">
+      <a mat-button class="logo" routerLink="/">
       <img src="assets/img/peka.png"/> <span>Пека.ch</span>
       </a>
-      <a  md-raised-button
+      <a  mat-raised-button
         routerLink="/streams"
         color="primary">
-        <md-icon>ondemand_video</md-icon> <span>Watch</span>
+        <mat-icon>ondemand_video</mat-icon> <span>Watch</span>
       </a>
-      <a md-raised-button
+      <a mat-raised-button
         routerLink="/add-streams">
-        <md-icon>add_box</md-icon> <span>Add new streams</span>
+        <mat-icon>add_box</mat-icon> <span>Add new streams</span>
       </a>
       <span class="flex-spacer">
       </span>
-      <md-button-toggle (click)="toggleColorTheme()">
-        <md-icon>brightness_6</md-icon> <span></span>
-      </md-button-toggle>
-      <a md-raised-button
+      <mat-button-toggle (click)="toggleColorTheme()">
+        <mat-icon>brightness_6</mat-icon> <span></span>
+      </mat-button-toggle>
+      <a mat-raised-button
         class="main-navbtn"
-        [mdMenuTriggerFor]="menu">
-        <md-icon>account_box</md-icon> <span>Login</span>
-        <md-menu #menu="mdMenu">
-          <button md-menu-item disabled>
-            <md-icon>accessibility</md-icon> <span>Нормальный аккаунт</span>
+        [matMenuTriggerFor]="menu">
+        <mat-icon>account_box</mat-icon> <span>Login</span>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item disabled>
+            <mat-icon>accessibility</mat-icon> <span>Нормальный аккаунт</span>
           </button>
-          <button md-menu-item>
-            <md-icon>people</md-icon> <span>Для белых людей</span>
+          <button mat-menu-item>
+            <mat-icon>people</mat-icon> <span>Для белых людей</span>
           </button>
-          <button md-menu-item>
-            <md-icon>people_outline</md-icon> <span>Для не белых</span>
+          <button mat-menu-item>
+            <mat-icon>people_outline</mat-icon> <span>Для не белых</span>
           </button>
-          <button md-menu-item>
-            <md-icon>accessible</md-icon> <span>Аккаунт для инвалидов</span>
+          <button mat-menu-item>
+            <mat-icon>accessible</mat-icon> <span>Аккаунт для инвалидов</span>
           </button>
-          <button md-menu-item>
-            <md-icon>record_voice_over</md-icon> <span>Крикунов</span>
+          <button mat-menu-item>
+            <mat-icon>record_voice_over</mat-icon> <span>Крикунов</span>
           </button>
-          <button md-menu-item>
-            <md-icon>pan_tool</md-icon> <span>Дрочунов</span>
+          <button mat-menu-item>
+            <mat-icon>pan_tool</mat-icon> <span>Дрочунов</span>
           </button>
-          <button md-menu-item>
-            <md-icon>pregnant_woman</md-icon> <span>Жирных</span>
+          <button mat-menu-item>
+            <mat-icon>pregnant_woman</mat-icon> <span>Жирных</span>
           </button>
-          <button md-menu-item>
-            <md-icon>pets</md-icon> <span>Я котик :grumpy:</span>
+          <button mat-menu-item>
+            <mat-icon>pets</mat-icon> <span>Я котик :grumpy:</span>
           </button>
-          <button md-menu-item>
-            <md-icon>wc</md-icon> <span>Туалет</span>
+          <button mat-menu-item>
+            <mat-icon>wc</mat-icon> <span>Туалет</span>
           </button>
-          <button md-menu-item>
-            <md-icon>sentiment_dissatisfied</md-icon> <span>Для тебя</span>
+          <button mat-menu-item>
+            <mat-icon>sentiment_dissatisfied</mat-icon> <span>Для тебя</span>
           </button>
-        </md-menu>
+        </mat-menu>
       </a>
-    </md-toolbar>
+    </mat-toolbar>
   </header>
   <router-outlet></router-outlet>
 </content>
