@@ -1,3 +1,2 @@
-export * from './providers';
-export * from './stream.model';
-export * from './hashmap.model';
+export * from "./providers";
+export * from "./stream.model";

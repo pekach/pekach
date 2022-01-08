@@ -1,5 +1,3 @@
-import { Provider, HashMap } from 'app/shared';
-
 export interface FirebaseStream {
   id: number;
   online: boolean;
@@ -13,5 +11,5 @@ export interface FirebaseStream {
   title: string;
   mature: boolean;
   thumbnail: string;
-  providers: HashMap<boolean>;
+  providers: Record<string, boolean>;
 }

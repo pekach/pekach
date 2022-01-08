@@ -1,10 +1,10 @@
-import { Route } from '@angular/router';
+import { Route } from "@angular/router";
 
-import { NotFoundComponent } from './errors';
+import { NotFoundComponent } from "./errors";
 
 export const routes: Array<Route> = [
   {
-    path: '**',
+    path: "**",
     component: NotFoundComponent,
-  }
+  },
 ];

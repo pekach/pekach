@@ -1,1 +1,1 @@
-export { STREAMS } from './streams.mock';
+export { STREAMS } from "./streams.mock";

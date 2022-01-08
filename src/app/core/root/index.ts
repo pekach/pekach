@@ -1,1 +1,1 @@
-export { RootComponent } from './root.component';
+export { RootComponent } from "./root.component";

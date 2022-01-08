@@ -1,5 +1,4 @@
-import { Provider } from './providers';
-import { HashMap } from './hashmap.model';
+import { Provider } from "./providers";
 
 export interface Stream {
   id: number;

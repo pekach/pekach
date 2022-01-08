@@ -1,2 +1,2 @@
-export * from './firebase-stream.model';
-export * from './firebase-stream.service';
+export * from "./firebase-stream.model";
+export * from "./firebase-stream.service";

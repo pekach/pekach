@@ -1,4 +1,4 @@
-import { Stream } from '../../shared';
+import { Stream } from "../../shared";
 
 /*
 export const stream: Stream = {

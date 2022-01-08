@@ -1,1 +1,1 @@
-export * from './fallback-source.directive';
+export * from "./fallback-source.directive";

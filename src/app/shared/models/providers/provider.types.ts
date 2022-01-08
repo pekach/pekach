@@ -1,4 +1,1 @@
-export type ProviderType
-  = 'goodgame'
-  | 'cybergame'
-  | 'twitch';
+export type ProviderType = "goodgame" | "cybergame" | "twitch";

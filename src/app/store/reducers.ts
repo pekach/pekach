@@ -11,10 +11,10 @@ export interface RouterStateUrl {
 
 export interface States {
   streams: fromStreams.State;
-  routerReducer: RouterReducerState<RouterStateUrl>;
+  routes: RouterReducerState<RouterStateUrl>;
 }
 
 export const reducers: ActionReducerMap<States> = {
-  streams: fromStreams.reducer,
-  routerReducer: routerReducer
+  streams: fromStreams.streamsReducer,
+  routes: routerReducer,
 };

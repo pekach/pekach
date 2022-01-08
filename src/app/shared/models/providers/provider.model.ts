@@ -1,4 +1,4 @@
-import { ProviderType } from './provider.types';
+import { ProviderType } from "./provider.types";
 
 export interface Provider {
   id: number;
