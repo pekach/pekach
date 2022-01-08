@@ -15,14 +15,20 @@ const initialState: State = {
 
 export const streamsReducer = createReducer(
   initialState,
-  on(addStream, (state) => ({
-    ...state,
-    loading: true,
-  })),
-  on(fetchStreamsSuccess, (_, action) => ({
-    streams: action.payload,
-    loading: false,
-  }))
+  on(
+    addStream,
+    (state): State => ({
+      ...state,
+      loading: true,
+    })
+  ),
+  on(
+    fetchStreamsSuccess,
+    (_, action): State => ({
+      streams: action.payload,
+      loading: false,
+    })
+  )
 );
 
 export const getStream = (state: State) => state.streams;
